@@ -1,0 +1,9 @@
+**Pour acceder à la base de données**
+URL : quentinstac-ressources.fr
+Port : 3306
+User : yvqk9166_adminMediatekFormation
+Mot de passe : Admin13579@APE5!
+
+**Pour acceder au backend de l'application**
+User : admin
+Mot de passe : admin

@@ -1,0 +1,39 @@
+{% extends "baseadmin.html.twig" %}
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-left align-top" scope="col">
+                    Ajouter un nouveau niveau
+                    <form class="form-inline mt-1" method="POST" action="{{ path('admin.niveau.ajout')}}">
+                        <div class="form-group mr-1 mb-2">
+                            <input type="text" class="sm" name="ajouter">
+                        </div>
+                        <input type="hidden" name="_token" value="{{ csrf_token('token_ajouter') }}">
+                        <button type="submit" class="btn btn-info mb-2 btn-sm">Ajouter</button>
+                    </form>
+                        <br>
+                    Niveau
+                </th>
+                <th class="text-center">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for niveau in niveaux %}
+                <tr>
+                    <td>
+                        <h5 class="text-info">
+                            {{ niveau.niveaudifficulte }}
+                        </h5>
+                    </td>
+                    <td class="text-center">
+                        <a href="{{ path('admin.niveau.suppr', {id:niveau.id}) }}" class="btn btn-danger" 
+                           onclick="return confirm('Etes vous sûr de vouloir supprimer la formation {{niveau.niveaudifficulte}} ?')">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
